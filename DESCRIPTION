@@ -1,5 +1,5 @@
 Package: VOSONDash
-Version: 0.4.4
+Version: 0.5.1
 Title: User Interface for Collecting and Analysing Social Networks
 Description: A 'Shiny' application for the interactive visualisation and
     analysis of networks that also provides a web interface for collecting
@@ -17,6 +17,6 @@ RoxygenNote: 6.1.1
 NeedsCompilation: no
 URL: https://github.com/vosonlab/VOSONDash
 BugReports: https://github.com/vosonlab/VOSONDash/issues
-Packaged: 2019-08-08 13:01:10 UTC; blue
+Packaged: 2019-11-23 02:16:34 UTC; Ben
 Repository: CRAN
-Date/Publication: 2019-08-09 10:20:03 UTC
+Date/Publication: 2019-11-23 05:30:06 UTC

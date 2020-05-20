@@ -1,13 +1,17 @@
-#### batch reset, enable and disable graph contols ####
-
 disableGraphFilterControls <- function() {
   ui_controls <- c("graph_isolates_check",
                    "graph_multi_edge_check",
                    "graph_loops_edge_check",
-                   "graph_names_check",
+                   "node_index_check",
+                   "node_labels_check",
+                   "graph_niter",
+                   "graph_charge",
+                   "graph_mass",
+                   "graph_spr_len",
+                   "graph_spr_const",
                    "graph_cat_select",
                    "graph_sub_cats_select",
-                   "graph_node_size_degree_select", 
+                   "graph_node_size_select", 
                    "analysis_graphml_download_button",
                    "graph_reseed_button",
                    "graph_layout_select", 
@@ -21,9 +25,15 @@ disableGraphFilterControls <- function() {
 resetEnableGraphFilterControls <- function() {
   ui_controls <- c("graph_isolates_check", 
                    "graph_multi_edge_check", 
-                   "graph_loops_edge_check", 
-                   "graph_names_check", 
-                   "graph_node_size_degree_select",
+                   "graph_loops_edge_check",
+                   "node_index_check",
+                   "node_labels_check",
+                   "graph_niter",
+                   "graph_charge",
+                   "graph_mass",
+                   "graph_spr_len",
+                   "graph_spr_const",
+                   "graph_node_size_select",
                    "graph_node_size_slider",
                    "graph_sub_cats_select", 
                    "graph_layout_select", 
@@ -70,12 +80,16 @@ resetEnableTextAnalysisControls <- function() {
 enablePlotControls <- function() {
   shinyjs::disable("graph_download_button")
   
-  # added "graph_multi_edge_check", "graph_loops_edge_check" for bug switching back to plot from visnetwork
-  # and multi, loops checkbox remaining disabled
-  ui_controls <- c("graph_names_check",
+  ui_controls <- c("node_index_check",
+                   "node_labels_check",
+                   "graph_niter",
+                   "graph_charge",
+                   "graph_mass",
+                   "graph_spr_len",
+                   "graph_spr_const",                   
                    "graph_reseed_button",
                    "graph_layout_select",
-                   "graph_node_size_degree_select",
+                   "graph_node_size_select",
                    "graph_node_size_slider",
                    "graph_spread_slider",
                    "graph_multi_edge_check",
@@ -84,26 +98,10 @@ enablePlotControls <- function() {
   sapply(ui_controls, function(x) { shinyjs::enable(x) })
 }
 
-enableD3Controls <- function() {
-  shinyjs::enable("graph_download_button")
-  
-  ui_controls <- c("graph_names_check",
-                   "graph_reseed_button",
-                   "graph_layout_select",
-                   "graph_node_size_degree_select",
-                   "graph_node_size_slider",
-                   "graph_spread_slider")
-  
-  sapply(ui_controls, function(x) { shinyjs::disable(x) })
-}
-
 enableVisNetworkControls <- function() {
   shinyjs::enable("graph_download_button")
   
-  ui_controls <- c(#"graph_names_check", 
-                   # "graph_multi_edge_check", 
-                   # "graph_loops_edge_check", 
-                   "graph_spread_slider")
+  ui_controls <- c("graph_spread_slider")
   
   sapply(ui_controls, function(x) { shinyjs::disable(x) })
 }

@@ -1,7 +1,5 @@
 # voson dashboard shiny app globals
 
-v029 <- isVosonSML0290()
-
 # app version
 app_version <- paste0("v", VOSONDash::getVOSONDashVer())
 
@@ -25,6 +23,11 @@ source("packages.R", local = TRUE)
 ifelse(isLocal, options(shiny.maxRequestSize = 128*1024^2), # 128 MB
                 options(shiny.maxRequestSize = 48*1024^2))  # 48 MB
 
+is2910 <- FALSE
+if (utils::packageVersion("vosonSML") >= "0.29.10") {
+  is2910 <- TRUE
+}
+
 # graph data
 voson_cat_prefix <- "^vosonCA_"
 voson_txt_prefix <- "^vosonTxt_"
@@ -33,7 +36,8 @@ voson_txt_prefix <- "^vosonTxt_"
 gbl_rng_range <- c(1, 5000)
 gbl_plot_def_label_color <- "#333333"
 gbl_plot_def_vertex_color <- "orange"
-gbl_plot_sel_vertex_color <- "#006cb7"
+gbl_plot_sel_vertex_color <- "#74c6ff" # "#006cb7"
+gbl_sel_label_col <- "#006cb7"
 
 gbl_plot_palette <- function(n = 8) brewer.pal(n, "Dark2")
 gbl_plot_height <- 500

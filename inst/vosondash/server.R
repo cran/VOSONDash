@@ -38,16 +38,16 @@ shinyServer(function(input, output, session) {
   
   source("server/consoleServer.R", local = TRUE)
   
+  if (is2910) {
+    shinyjs::enable("twitter_semantic_assoc") 
+  }
+  
   # reset collect consoles on startup
   observeEvent(input$sidebar_menu, {
     resetConsole("twitter_console", FALSE)
     resetConsole("youtube_console", FALSE)
     resetConsole("reddit_console", FALSE)
   }, once = TRUE, ignoreInit = FALSE)
-  
-  if (!v029) {
-    js$disableTab("'Create Network'")  
-  }
   
   # stop app when browser closes
   session$onSessionEnded(function() {
